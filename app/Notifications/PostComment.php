@@ -68,7 +68,7 @@ class PostComment extends Notification implements ShouldQueue
     public function toDatabase(object $notifiable)
     {
         return [
-            'comment' => $this->comment
+            'comment' => $this->comment->load('user') // load('user') faz o relacionamento do comentario com o usuário que o comentou. Tipo o with() para trazer os relacionamentos
         ];
     }
 }
