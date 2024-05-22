@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Invoice\InvoiceController;
 use App\Http\Controllers\Posts\CommentController;
 use App\Http\Controllers\Posts\PostController;
 use App\Http\Controllers\ProfileController;
@@ -7,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('comment', [CommentController::class, 'store'])->name('comment.store');
 Route::resource('posts', PostController::class);
+Route::get('invoice-paid', [InvoiceController::class, 'enviaNotificacao'])->name('invoice-paid.enviaNotificacao');
 
 Route::get('/', function () {
     return view('welcome');
